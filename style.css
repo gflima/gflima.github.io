@@ -1,0 +1,94 @@
+:root {
+    --font: sans-serif;
+    --fg-color: #fff;
+    --bg-color: #111;
+    --em-color: #ffbb00;
+    --link-color1: #4ee;
+    --link-color2: #4eafaf;
+    --box-color: #21ff00;
+    --table-color1: #000;
+    --table-color2: #222;
+    color-scheme: dark;
+}
+
+:root :has(#lightmode:checked) {
+    --fg-color: #000;
+    --bg-color: #fff;
+    --em-color: #f00;
+    --link-color1: #0000EE;
+    --link-color2: #551A8B;
+    --box-color: #000;
+    --table-color1: #FFF;
+    --table-color2: #CCC;
+    color-scheme: light;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: var(--font);
+}
+
+main, footer {
+    max-width: 40em;
+    margin: auto;
+}
+
+nav {
+    position: fixed;
+    transform: translate(-130%, 0%);
+    text-align: right;
+}
+
+fieldset {
+    border: none;
+    border-right: gray 1px solid;
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+}
+
+a {
+    color: var(--link-color1);
+}
+
+a:visited {
+    color: var(--link-color2);
+}
+
+theme-picker {
+    color: gray;
+    display: block;
+    margin-top: 5px;
+    input {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    label {
+        cursor: pointer;
+        width: 50%;
+        text-align: center;
+        &:has(input:checked) {
+            /* box-shadow: inset 0px 0px 7px 0px var(--fg-color); */
+        }
+        &:not(:has(input:checked)) {
+            filter: grayscale(100%);
+            /* box-shadow: inset 0px 0px 7px 0px var(--fg-color); */
+        }
+        &:hover {
+            color: var(--em-color);
+        }
+        user-select: none;
+    }
+}
