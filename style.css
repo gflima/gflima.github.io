@@ -79,12 +79,8 @@ theme-picker {
         cursor: pointer;
         width: 50%;
         text-align: center;
-        &:has(input:checked) {
-            /* box-shadow: inset 0px 0px 7px 0px var(--fg-color); */
-        }
         &:not(:has(input:checked)) {
             filter: grayscale(100%);
-            /* box-shadow: inset 0px 0px 7px 0px var(--fg-color); */
         }
         &:hover {
             color: var(--em-color);
